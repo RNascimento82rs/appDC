@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Organograma</title>
+</head>
+<body>
+    <h1>Editar Organograma</h1>
+    <form method="POST">
+        <label>Nome:</label><br>
+        <input type="text" name="nome" value="{{ organograma.nome }}" required><br><br>
+
+        <label>Tipo de Incidente:</label><br>
+        <input type="text" name="tipo_incidente" value="{{ organograma.tipo_incidente }}"><br><br>
+
+        <label>Estrutura JSON:</label><br>
+        <textarea name="estrutura_json" rows="10" cols="50" required>{{ organograma.estrutura_json }}</textarea><br><br>
+
+        <button type="submit">Atualizar</button>
+    </form>
+    <a href="{{ url_for('web.index') }}">Voltar</a>
+</body>
+</html>

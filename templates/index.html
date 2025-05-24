@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Municípios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Lista de Municípios</h1>
+    <a href="{{ url_for('web.add_municipio_route') }}">Adicionar Município</a>
+    <ul>
+        {% for m in municipios %}
+            <li>{{ m.nome }} ({{ m.latitude }}, {{ m.longitude }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

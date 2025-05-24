@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Município</title>
+</head>
+<body>
+    <h1>Adicionar Novo Município</h1>
+    <form method="POST">
+        <label>Nome:</label><br>
+        <input type="text" name="nome" required><br><br>
+
+        <label>Latitude:</label><br>
+        <input type="number" step="any" name="latitude" required><br><br>
+
+        <label>Longitude:</label><br>
+        <input type="number" step="any" name="longitude" required><br><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{{ url_for('web.index') }}">Voltar</a>
+</body>
+</html>

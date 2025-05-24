@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Organograma</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree/dist/themes/default/style.min.css" />
+</head>
+<body>
+    <h1>Organograma</h1>
+    <div id="organograma-tree"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree/dist/jstree.min.js"></script>
+    <script>
+        const estrutura = {{ organograma | safe }};
+        $(function () {
+            $('#organograma-tree').jstree({
+                'core': {
+                    'data': estrutura
+                }
+            });
+        });
+    </script>
+    <a href="{{ url_for('web.index') }}">Voltar</a>
+</body>
+</html>
