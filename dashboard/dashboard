@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Sistema SCI</title>
+  <style>
+    :root {
+      --azul-dc: #003366;
+      --laranja-dc: #ff6600;
+      --cinza-claro: #f5f6fa;
+      --cinza-medio: #e0e0e0;
+      --cinza-escuro: #444950;
+      --branco: #fff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--cinza-claro);
+      min-height: 100vh;
+      color: var(--cinza-escuro);
+    }
+    .header {
+      background: var(--azul-dc);
+      color: var(--branco);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .header .user-info {
+      font-size: 1rem;
+    }
+    .sidebar {
+      background: var(--branco);
+      width: 210px;
+      min-height: calc(100vh - 64px);
+      padding: 2rem 0.5rem 2rem 1.5rem;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.04);
+      position: fixed;
+      top: 64px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: var(--azul-dc);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: var(--cinza-claro);
+      color: var(--laranja-dc);
+    }
+    .main-content {
+      margin-left: 230px;
+      padding: 2.5rem 2rem;
+    }
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .card {
+      background: var(--branco);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7rem;
+      border-left: 5px solid var(--azul-dc);
+      transition: box-shadow 0.2s;
+    }
+    .card.orange {
+      border-left: 5px solid var(--laranja-dc);
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--azul-dc);
+    }
+    .card-desc {
+      font-size: 0.98rem;
+      color: var(--cinza-escuro);
+    }
+    .card-link {
+      margin-top: 0.5rem;
+      color: var(--laranja-dc);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.97rem;
+      transition: text-decoration 0.2s;
+    }
+    .card-link:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 800px) {
+      .sidebar {
+        display: none;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 1.2rem 0.5rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .dashboard-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Sistema SCI - Defesa Civil RS</div>
+    <div class="user-info">
+      Olá, Usuário &nbsp;|&nbsp; <a href="#" style="color:#fff;text-decoration:underline;">Sair</a>
+    </div>
+  </div>
+  <nav class="sidebar">
+    <a href="dashboard.html" class="active">🏠 Dashboard</a>
+    <a href="municipios.html">🏢 Municípios/SCIs</a>
+    <a href="mapa.html">🗺️ Mapa Interativo</a>
+    <a href="relatorios.html">📄 Relatórios</a>
+    <a href="usuarios.html">👤 Usuários</a>
+  </nav>
+  <main class="main-content">
+    <h2>Bem-vindo ao Sistema SCI</h2>
+    <p>Utilize o menu ao lado para navegar entre as funcionalidades do sistema.</p>
+    <div class="dashboard-cards">
+      <div class="card">
+        <div class="card-title">Municípios/SCIs</div>
+        <div class="card-desc">Gerencie o cadastro, edição e exclusão de municípios e seus SCIs.</div>
+        <a href="municipios.html" class="card-link">Acessar</a>
+      </div>
+      <div class="card orange">
+        <div class="card-title">Mapa Interativo</div>
+        <div class="card-desc">Visualize todos os municípios cadastrados em um mapa interativo.</div>
+        <a href="mapa.html" class="card-link">Acessar</a>
+      </div>
+      <div class="card">
+        <div class="card-title">Relatórios</div>
+        <div class="card-desc">Exporte dados em PDF ou Excel, por município ou geral.</div>
+        <a href="relatorios.html" class="card-link">Acessar</a>
+      </div>
+      <div class="card">
+        <div class="card-title">Usuários</div>
+        <div class="card-desc">Gerencie usuários e permissões de acesso ao sistema.</div>
+        <a href="usuarios.html" class="card-link">Acessar</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios - Sistema SCI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f6fa;
+      color: #444950;
+    }
+    .header {
+      background: #003366;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .header .user-info {
+      font-size: 1rem;
+    }
+    .main-content {
+      max-width: 800px;
+      margin: 2.5rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 2rem;
+    }
+    h2 {
+      color: #003366;
+      margin-top: 0;
+    }
+    .relatorio-opcoes {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    .btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      background: #ff6600;
+      color: #fff;
+      font-size: 1rem;
+      transition: background 0.2s;
+      margin-right: 0.3rem;
+    }
+    .btn:hover { background: #003366; }
+    @media (max-width: 700px) {
+      .main-content { padding: 1rem; }
+      .btn { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Sistema SCI</div>
+    <div class="user-info">
+      Olá, Usuário &nbsp;|&nbsp; <a href="interface.html" style="color:#fff;text-decoration:underline;">Sair</a>
+    </div>
+  </div>
+  <div class="main-content">
+    <h2>Relatórios</h2>
+    <div class="relatorio-opcoes">
+      <button class="btn">Exportar Relatório Geral (PDF)</button>
+      <button class="btn">Exportar Relatório Geral (Excel)</button>
+      <button class="btn">Exportar por Município (PDF)</button>
+      <button class="btn">Exportar por Município (Excel)</button>
+    </div>
+    <p style="margin-top:2rem;color:#888;">Funcionalidades de exportação serão implementadas em breve.</p>
+  </div>
+</body>
+</html>

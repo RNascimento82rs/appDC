@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municípios/SCIs - Sistema SCI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f6fa;
+      color: #444950;
+    }
+    .header {
+      background: #003366;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .header .user-info {
+      font-size: 1rem;
+    }
+    .main-content {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 2rem;
+    }
+    h2 {
+      color: #003366;
+      margin-top: 0;
+    }
+    .municipios-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+    .municipios-table th, .municipios-table td {
+      padding: 0.7rem 0.5rem;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    .municipios-table th {
+      background: #f5f6fa;
+      color: #003366;
+      font-weight: 700;
+    }
+    .btn {
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      background: #ff6600;
+      color: #fff;
+      transition: background 0.2s;
+      margin-right: 0.3rem;
+    }
+    .btn.edit { background: #003366; }
+    .btn.delete { background: #d32f2f; }
+    .btn:hover { opacity: 0.85; }
+    .add-btn {
+      background: #003366;
+      color: #fff;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .add-btn:hover { background: #ff6600; }
+    @media (max-width: 700px) {
+      .main-content { padding: 1rem; }
+      .municipios-table th, .municipios-table td { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Sistema SCI</div>
+    <div class="user-info">
+      Olá, Usuário &nbsp;|&nbsp; <a href="interface.html" style="color:#fff;text-decoration:underline;">Sair</a>
+    </div>
+  </div>
+  <div class="main-content">
+    <h2>Municípios/SCIs</h2>
+    <button class="add-btn">+ Adicionar Município/SCI</button>
+    <table class="municipios-table">
+      <thead>
+        <tr>
+          <th>Município</th>
+          <th>SCI</th>
+          <th>Responsável</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Exemplo RS</td>
+          <td>Defesa Civil</td>
+          <td>João da Silva</td>
+          <td>
+            <button class="btn edit">Editar</button>
+            <button class="btn delete">Excluir</button>
+          </td>
+        </tr>
+        <!-- Outras linhas serão geradas dinamicamente -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

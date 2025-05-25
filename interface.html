@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sistema SCI</title>
+  <style>
+    :root {
+      --azul-dc: #003366;
+      --cinza-claro: #f5f6fa;
+      --cinza-medio: #e0e0e0;
+      --cinza-escuro: #444950;
+      --branco: #fff;
+      --laranja-dc: #ff6600;
+      --sombra: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--cinza-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-container {
+      background: var(--branco);
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 16px;
+      box-shadow: var(--sombra);
+      width: 100%;
+      max-width: 370px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid var(--cinza-medio);
+      gap: 0.5rem;
+    }
+    .login-title {
+      font-size: 1.18rem;
+      margin-bottom: 0.2rem;
+      color: var(--azul-dc);
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .login-subtitle {
+      font-size: 1.02rem;
+      color: var(--cinza-escuro);
+      margin-bottom: 0.2rem;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+    }
+    .login-crepdec {
+      font-size: 1.05rem;
+      color: var(--laranja-dc);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .login-form input {
+      padding: 0.85rem;
+      border: 1.5px solid var(--cinza-medio);
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s, background 0.2s;
+      background: var(--cinza-claro);
+      color: var(--azul-dc);
+      font-weight: 500;
+    }
+    .login-form input:focus {
+      border-color: var(--laranja-dc);
+      background: #fffbe6;
+    }
+    .login-btn {
+      padding: 0.85rem;
+      background: var(--azul-dc);
+      color: var(--branco);
+      border: none;
+      border-radius: 8px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-top: 0.2rem;
+      letter-spacing: 0.5px;
+    }
+    .login-btn:hover, .login-btn:focus {
+      background: #1a4372;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .login-error {
+      color: #d32f2f;
+      font-size: 0.98rem;
+      margin-top: 0.6rem;
+      text-align: center;
+      font-weight: 500;
+    }
+    @media (max-width: 430px) {
+      .login-container {
+        padding: 1.2rem;
+        max-width: 98vw;
+      }
+      .login-title, .login-subtitle, .login-crepdec {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-title">CASA MILITAR</div>
+    <div class="login-subtitle">SUBCHEFIA DE PROTEÇÃO E DEFESA CIVIL</div>
+    <div class="login-crepdec">CREPDEC 8</div>
+    <form class="login-form" autocomplete="off">
+      <input type="email" placeholder="E-mail" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit" class="login-btn">Entrar</button>
+    </form>
+    <!-- <div class="login-error">E-mail ou senha inválidos.</div> -->
+  </div>
+  <script>
+    document.querySelector('.login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.querySelector('input[type="email"]').value;
+      const senha = document.querySelector('input[type="password"]').value;
+      fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email, senha})
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        if(data.status === "ok") {
+          window.location.href = "dashboard.html";
+        } else {
+          if(!document.querySelector('.login-error')) {
+            const erro = document.createElement('div');
+            erro.className = 'login-error';
+            erro.innerText = data.mensagem;
+            document.querySelector('.login-container').appendChild(erro);
+          } else {
+            document.querySelector('.login-error').innerText = data.mensagem;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
